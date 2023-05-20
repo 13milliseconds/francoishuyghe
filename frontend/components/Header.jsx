@@ -11,7 +11,7 @@ export default function Header() {
         <p className="text-3xl mb-6">{settings.tagline}</p>
       </div>
       <div>
-        <button className="bg-lime-400 p-4 rounded-lg uppercase font-bold">Contact</button>
+        <a href="#about" className="contact bg-lime-400 px-4 py-2 rounded-lg uppercase text-2xl inline-block">about</a>
       </div>
     </div>
   )

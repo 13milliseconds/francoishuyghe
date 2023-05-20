@@ -5,22 +5,22 @@ export default function Footer() {
   const settings = useSettings()
 
   return (
-    <footer className='p-6 bg-black text-white'>
+    <footer id="about" className='p-6 bg-black text-white'>
       <div className="max-w-6xl">
       <h2 className="text-4xl mb-6">About</h2>
       <p className="mb-6">{settings.about}</p>
 
       <div className="md:flex md:justify-between">
         <div className="mb-6">
-          <h3>Technology</h3>
+          <h4 className="uppercase mb-2">Technology</h4>
           <PortableText value={settings.technology}/>
         </div>
         <div className="col mb-6">
-          <h3>Clients</h3>
+          <h4 className="uppercase mb-2">Clients</h4>
           <PortableText value={settings.clients}/>
         </div>
         <div className="col mb-6">
-          <h3>Contact</h3>
+          <h4 className="uppercase mb-2">Contact</h4>
           <ul>
             <li><a href={settings.linkedin} target="_blank">LinkedIn</a></li>
             <li><a href={`mailto:${settings.email}`} target="_blank">{settings.email}</a></li>
