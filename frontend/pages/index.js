@@ -9,7 +9,7 @@ export default function Home({projects}) {
 
   return (
     <main className={`${inter.className} min-h-screen p-6`}>
-      <div className="max-w-4xl mb-6">
+      <div className="max-w-4xl mb-10">
         <p className="text-xl md:text-3xl">{settings.tagline}</p>
       </div>
       <Portfolio projects={projects} />
