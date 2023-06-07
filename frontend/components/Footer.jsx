@@ -36,7 +36,7 @@ export default function Footer() {
         <div className="col mb-6">
           <h4 className="uppercase mb-2">Contact</h4>
           <ul>
-            <li><a href={settings.linkedin} target="_blank">LinkedIn</a></li>
+            <li><a href={settings.linkedin_url} target="_blank">LinkedIn</a></li>
             <li><a href={`mailto:${settings.email}`} target="_blank">{settings.email}</a></li>
           </ul>
         </div>
