@@ -2,8 +2,10 @@ import { getAllProjects, getSingleProject } from "@/lib/database";
 import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 import Link from "next/link";
+import Head from "next/head";
 import {PortableText} from '@portabletext/react'
 import Image from "@/components/ImageBlock";
+import { useSettings } from "@/context/context";
 
 const components = {
   types: {
@@ -12,6 +14,7 @@ const components = {
 }
 
 export default function ProjectPage({project}){
+  const { settings } = useSettings()
 
   const onBackToTop = () => {
     window.scrollTo({
@@ -21,6 +24,13 @@ export default function ProjectPage({project}){
   }
     
     return <main className={`${inter.className} min-h-screen p-6`}>
+      <Head>
+        <title>{`${settings.title} | ${project.title}`}</title>
+        <meta
+          name="description"
+          content={project.blurb}
+        />
+      </Head>
       <div className="back mb-6">
         <Link href='/'>{'<  Back'}</Link>
       </div>
