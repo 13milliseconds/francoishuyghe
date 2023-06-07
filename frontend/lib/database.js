@@ -1,13 +1,29 @@
 import { client } from "@/context/context";
 
 export async function getAllProjects() {
-    const projects = await client.fetch(`*[_type == "project"] | order(year desc)`);
+    const projects = await client.fetch(`*[_type == "project"]{
+      ...,
+      featuredImage{
+        asset->{
+          ...,
+          metadata
+        }
+      }
+    } | order(year desc)`);
 
     return projects
 }
 
 export async function getSingleProject(slug) {
-    const project = await client.fetch(`*[slug.current=="${slug}"]`);
+    const project = await client.fetch(`*[slug.current=="${slug}"]{
+      ...,
+      featuredImage{
+        asset->{
+          ...,
+          metadata
+        }
+      }
+    }`);
   
     return {
       slug,

@@ -91,4 +91,5 @@ footer{
   font-family: 'OTBrut';
   src:  url('../public/fonts/OTBrut-Regular.woff2') format('woff2'),
         url('../public/fonts/OTBrut-Regular.woff') format('woff');
+  font-display: swap;
 }

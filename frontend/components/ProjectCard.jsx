@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "./Image";
+import Image from "./ImageBlock";
 
 
 export default function ProjectCard({project}) {

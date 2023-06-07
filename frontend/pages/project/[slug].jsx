@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 import Link from "next/link";
 import {PortableText} from '@portabletext/react'
-import Image from "@/components/Image";
+import Image from "@/components/ImageBlock";
 
 const components = {
   types: {
