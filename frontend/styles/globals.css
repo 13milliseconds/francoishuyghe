@@ -23,6 +23,10 @@ body {
   scroll-behavior: smooth;
 }
 
+p{
+  margin-bottom: 1.5rem;
+}
+
 h1, h3,
 .year,
 .contact{
@@ -36,6 +40,19 @@ h1, h3,
 .project-card .text{
   flex: 1 0 20rem;
 }
+
+footer{
+  position: sticky;
+  bottom: 0;
+  transition: .5s ease;
+  transform: translateY(100%);
+}
+
+.sticky-footer{
+  transform: translateY(0);
+}
+
+
 
 @font-face {
   font-family: 'OTBrut';

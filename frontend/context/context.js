@@ -11,6 +11,7 @@ const defaultSettings = {
 
 export function SettingsProvider ({ children }){
   const [settings, setSettings] = useState(defaultSettings)
+  const [showAbout, setShowAbout] = useState(false)
 
   useEffect(()=>{
     handleGetSettings()
@@ -22,7 +23,7 @@ export function SettingsProvider ({ children }){
   }
 
   return (
-    <SettingsContext.Provider value={settings}>
+    <SettingsContext.Provider value={{settings, showAbout, setShowAbout}}>
       {children}
     </SettingsContext.Provider>
   );
