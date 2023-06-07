@@ -1,7 +1,7 @@
 import { client } from "@/context/context";
 
 export async function getAllProjects() {
-    const projects = await client.fetch(`*[_type == "project"]`);
+    const projects = await client.fetch(`*[_type == "project"] | order(year desc)`);
 
     return projects
 }

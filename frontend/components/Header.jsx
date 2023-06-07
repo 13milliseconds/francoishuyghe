@@ -9,11 +9,8 @@ export default function Header() {
   }
 
   return (
-    <div className='header md:flex p-2 justify-between'>
-      <div className="max-w-4xl">
-        <h1 className="text-4xl font-bold"><Link href="/">{settings.title}</Link></h1>
-        <p className="text-3xl mb-6">{settings.tagline}</p>
-      </div>
+    <div className='header flex px-6 py-2 justify-between align-center'>
+        <h1 className="m:text-6xl text-5xl font-bold uppercase"><Link href="/">{settings.title}</Link></h1>
       <div>
         <button onClick={handleAboutButton} className="contact bg-lime-400 px-4 py-2 rounded-lg uppercase text-2xl">about</button>
       </div>

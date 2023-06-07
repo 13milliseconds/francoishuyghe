@@ -4,7 +4,6 @@ const inter = Inter({ subsets: ['latin'] })
 import Link from "next/link";
 import {PortableText} from '@portabletext/react'
 import Image from "@/components/Image";
-import { urlFor } from "@/context/context";
 
 const components = {
   types: {
@@ -13,28 +12,36 @@ const components = {
 }
 
 export default function ProjectPage({project}){
+
+  const onBackToTop = () => {
+    window.scrollTo({
+      top: 0, 
+      behavior: 'smooth'
+    });
+  }
     
     return <main className={`${inter.className} min-h-screen p-6`}>
       <div className="back mb-6">
         <Link href='/'>{'<  Back'}</Link>
       </div>
         <article>
-          <header className="md:flex justify-between">
-            <div className="max-w-6xl">
-            <h1 className="text-2xl mb-2">{project.title}</h1>
-            <p>{project.blurb}</p>
-            { project.featuredImage && <img src={urlFor(project.featuredImage).url()} />}
-            </div>
+          <header className="mb-12">
             { project.technology && 
-            <div>
-              <h3>Technology</h3>
+            <div className="project-technologies">
               <PortableText value={project.technology} />
             </div>}
+            <div className="flex align-items-top">
+              <h1 className="text-5xl mb-2">{project.title}</h1>
+              <div className="project-year">{project.year}</div>
+            </div>
+            { project.featuredImage && <Image value={project.featuredImage} classes="py-6" />}
+            <p className="text-2xl max-w-2xl ml-auto">{project.blurb}</p>
           </header>
           <div className="max-w-4xl">
           <PortableText value={project.content} components={components} />
         </div>
         </article>
+        <div onClick={onBackToTop}>^ Back to Top</div>
     </main>
 }
 
