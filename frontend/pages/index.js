@@ -8,8 +8,7 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Home({projects}) {
   const {settings} = useSettings()
 
-  return (
-    <main className={`${inter.className} min-h-screen p-6`}>
+  return (<main className={`${inter.className} min-h-screen p-6 bg-white`}>
       <Head>
         <title>{settings.title}</title>
         <meta

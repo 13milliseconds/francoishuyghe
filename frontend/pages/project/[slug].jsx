@@ -1,11 +1,12 @@
 import { getAllProjects, getSingleProject } from "@/lib/database";
 import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
-import Link from "next/link";
+import { motion } from "framer-motion";
 import Head from "next/head";
 import {PortableText} from '@portabletext/react'
 import Image from "@/components/ImageBlock";
 import { useSettings } from "@/context/context";
+import Layout from "@/components/Layout";
 
 const components = {
   types: {
@@ -23,7 +24,7 @@ export default function ProjectPage({project}){
     });
   }
     
-    return <main className={`${inter.className} min-h-screen p-6`}>
+    return <main className={`${inter.className} min-h-screen p-6  bg-white`}>
       <Head>
         <title>{`${settings.title} | ${project.title}`}</title>
         <meta
@@ -32,7 +33,6 @@ export default function ProjectPage({project}){
         />
       </Head>
       <div className="back mb-6">
-        <Link href='/'>{'<  Back'}</Link>
       </div>
         <article>
           <header className="mb-12">
