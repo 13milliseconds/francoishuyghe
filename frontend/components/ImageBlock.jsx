@@ -10,6 +10,7 @@ export default function ImageBlock({value, classes}) {
     return <div className={`image-block ${classes}`}>
       <Image 
         {...imageProps}
+        alt=""
         style={{ width: '100%', height: 'auto' }}
         sizes="(max-width: 1500px) 100vw, 800px"
         placeholder="blur"
