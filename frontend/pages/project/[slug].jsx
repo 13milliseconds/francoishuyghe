@@ -8,7 +8,7 @@ import { useSettings } from "@/context/context";
 
 const components = {
   types: {
-    image: ({value}) => <Image value={value} />
+    image: ({value}) => <ImageBlock value={value} />
   }
 }
 

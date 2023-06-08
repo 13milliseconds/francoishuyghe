@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "./ImageBlock";
+import ImageBlock from "./ImageBlock";
 import { motion } from "framer-motion";
 
 
@@ -10,7 +10,7 @@ export default function ProjectCard({project}) {
       <div className="image md:mb-6 mb-2">
       <Link href={`/project/${project.slug.current}`} name={project.title} scroll={false}>
         { project.featuredImage &&
-          <Image value={project.featuredImage}/>}
+          <ImageBlock value={project.featuredImage}/>}
         </Link>
       </div>
       <motion.div 
