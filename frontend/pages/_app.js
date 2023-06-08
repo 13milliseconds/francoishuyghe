@@ -18,15 +18,15 @@ export default function App({ Component, pageProps }) {
   return <SettingsProvider>
     <Header />
     <AnimatePresence 
-      mode="popLayout" 
+      mode="wait" 
       initial={false} 
       onExitComplete={scrollToTop}
     >
       <motion.div
         key={router.pathname}
-        initial={{ x: '100%', opacity: 1 }}
+        initial={{ x: 300, opacity: 1 }}
         animate={{ x: 0, opacity: 1 }}
-        exit={{ x: -500, opacity: 0 }}
+        exit={{ x: -300, opacity: 0 }}
         transition={{
             type: "spring",
             damping: 30,
