@@ -2,6 +2,7 @@ import { useRef, useEffect } from "react"
 import { useSettings } from "@/context/context"
 import cntl from 'cntl';
 import {PortableText} from '@portabletext/react'
+import ImageBlock from "./ImageBlock";
 
 export default function About() {
   const {settings, showAbout} = useSettings()
@@ -36,19 +37,32 @@ export default function About() {
 
   return (
     <footer id="about" className={aboutCN} ref={AboutEl}>
-      <div className="max-w-4xl">
       <h2 className="text-6xl mb-6">About</h2>
-      <p className="mb-6">{settings.about}</p>
+      <div className="grid md:grid-flow-col gap-4 grid-col-1 md:grid-col-4">
 
-      <div className="md:flex md:justify-between">
+      {/* BIO */}
+      <div className="max-w-4xl md:col-span-3">
+        <p className="mb-6">{settings.about}</p>
+      </div>
+
+      {/* AVATAR */}
+      <div className="mb-12 md:order-2 md:row-span-2">
+      <div className="avatar rounded-full overflow-hidden w-52 h-52">
+        {settings.avatar ? <ImageBlock value={settings.avatar} /> : null}
+      </div>
+      </div>
+
+      {/* COLUMNS */}
         <div className="mb-6">
           <h4 className="border-b pb-2 mb-2 max-w-[10rem]">Technology</h4>
           <PortableText value={settings.technology}/>
         </div>
+
         <div className="col mb-6">
           <h4 className="border-b pb-2 mb-2 max-w-[10rem]">Clients</h4>
           <PortableText value={settings.clients}/>
         </div>
+
         <div className="col mb-6">
           <h4 className="border-b pb-2 mb-2 max-w-[10rem]">Contact</h4>
           Based in New York
@@ -58,7 +72,8 @@ export default function About() {
             <li><a href={settings.github_url} target="_blank" className="underline">Github</a></li>
           </ul>
         </div>
-      </div>
+
+
       </div>
     </footer>
   )

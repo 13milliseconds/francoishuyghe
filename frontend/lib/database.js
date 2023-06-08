@@ -32,7 +32,15 @@ export async function getSingleProject(slug) {
 }
 
 export async function getSettings() {
-  const settings = await client.fetch(`*[_type == "siteSettings"]`);
+  const settings = await client.fetch(`*[_type == "siteSettings"]{
+    ...,
+    avatar{
+        asset->{
+          ...,
+          metadata
+        }
+      }
+  }`);
 
   return settings[0]
 }

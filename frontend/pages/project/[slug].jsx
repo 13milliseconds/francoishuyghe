@@ -1,12 +1,10 @@
 import { getAllProjects, getSingleProject } from "@/lib/database";
 import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
-import { motion } from "framer-motion";
 import Head from "next/head";
 import {PortableText} from '@portabletext/react'
-import Image from "@/components/ImageBlock";
+import ImageBlock from "@/components/ImageBlock";
 import { useSettings } from "@/context/context";
-import Layout from "@/components/Layout";
 
 const components = {
   types: {
@@ -44,7 +42,7 @@ export default function ProjectPage({project}){
               <h1 className="text-5xl mb-2">{project.title}</h1>
               <div className="project-year">{project.year}</div>
             </div>
-            { project.featuredImage && <Image value={project.featuredImage} classes="py-6" />}
+            { project.featuredImage && <ImageBlock value={project.featuredImage} classes="py-6" />}
             <p className="text-3xl max-w-2xl ml-auto">{project.blurb}</p>
           </header>
           <div className="project-content max-w-xl">
