@@ -87,7 +87,9 @@ h1, h2, h3,
 
 #about{
   transition: .5s ease;
-  @media (width > 480px){
+}
+@media (width > 480px){
+  #about{
     transform: translateY(100%)
   }
 }
@@ -95,9 +97,21 @@ h1, h2, h3,
 #about.sticky-about{
   top: 0;
 
-  @media (width > 480px){
+}
+@media (width > 480px){
+  #about.sticky-about{
     top: auto;
     transform: translateY(0)
+  }
+}
+
+#avatar{
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (width > 480px){
+  #avatar:hover{
+    animation: jiggle .5s infinite;
   }
 }
 
@@ -105,44 +119,31 @@ h1, h2, h3,
   opacity: 0;
   visibility: hidden;
   transition: .5s;
-  /* animation-duration: .5s;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards;
-  animation-name: fadeOut; */
 }
 
 #background.madeVisible{
   opacity: .6;
   visibility: visible;
-  /* animation-name: fadeIn; */
 }
 
 #background.hidden{
   animation-name: fadeOut;
 }
 
-@keyframes fadeIn {
-  0% { 
-    opacity: 0;
-    visibility: hidden;
+@keyframes jiggle{
+  0%{
+    transform: rotateZ(0)
   }
-  100% { 
-    opacity: .8; 
-    visibility: visible;
+  25%{
+    transform: rotateZ(-10deg)
   }
-}
-
-@keyframes fadeOut {
-  0% { 
-    opacity: .8; 
-    visibility: visible;
+  75%{
+    transform: rotateZ(10deg)
   }
-  100% { 
-    opacity: 0;
-    visibility: hidden;
+  100%{
+    transform: rotateZ(0)
   }
 }
-
 
 
 @font-face {

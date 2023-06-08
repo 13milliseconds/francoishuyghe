@@ -8,6 +8,7 @@ export default function ImageBlock({value, classes}) {
   const imageProps = useNextSanityImage(client, value)
 
     return <div className={`image-block ${classes}`}>
+      <div className='overflow-hidden rounded-lg'>
       <Image 
         {...imageProps}
         alt=""
@@ -16,5 +17,6 @@ export default function ImageBlock({value, classes}) {
         placeholder="blur"
         blurDataURL={value.asset.metadata.lqip}
       />
+      </div>
     </div>
 }

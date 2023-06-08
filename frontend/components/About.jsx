@@ -65,7 +65,7 @@ export default function About() {
 
         <div className="col mb-6">
           <h4 className="border-b pb-2 mb-2 max-w-[10rem]">Contact</h4>
-          Based in New York
+          In the mountains near New York
           <ul>
             <li><a href={`mailto:${settings.email}`} target="_blank">{settings.email}</a></li>
             <li><a href={settings.linkedin_url} target="_blank" className="underline">LinkedIn</a></li>
