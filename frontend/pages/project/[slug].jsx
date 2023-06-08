@@ -45,13 +45,13 @@ export default function ProjectPage({project}){
               <div className="project-year">{project.year}</div>
             </div>
             { project.featuredImage && <Image value={project.featuredImage} classes="py-6" />}
-            <p className="text-2xl max-w-2xl ml-auto">{project.blurb}</p>
+            <p className="text-3xl max-w-2xl ml-auto">{project.blurb}</p>
           </header>
-          <div className="max-w-4xl">
-          <PortableText value={project.content} components={components} />
-        </div>
+          <div className="project-content max-w-xl">
+            <PortableText value={project.content} components={components} />
+          </div>
         </article>
-        <div onClick={onBackToTop}>^ Back to Top</div>
+        <div onClick={onBackToTop} className="cursor-pointer hover:underline">^ Back to Top</div>
     </main>
 }
 
