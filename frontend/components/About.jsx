@@ -24,6 +24,8 @@ export default function About() {
   top-[100vh]
   w-screen
   h-screen
+  pb-20
+  md:pb-6
   md:h-auto
   md:top-auto
   md:bottom-0
