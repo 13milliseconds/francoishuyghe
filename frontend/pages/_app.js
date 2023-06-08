@@ -5,6 +5,7 @@ import About from '@/components/About'
 import { AnimatePresence, motion } from 'framer-motion'
 import {useRouter} from 'next/router'
 import Copyright from '@/components/Copyright'
+import Background from '@/components/Background'
 
 
 export default function App({ Component, pageProps }) {
@@ -36,6 +37,7 @@ export default function App({ Component, pageProps }) {
       <Component {...pageProps}/>
       </motion.div>
     </AnimatePresence>
+    <Background />
     <About />
     <Copyright />
   </SettingsProvider>

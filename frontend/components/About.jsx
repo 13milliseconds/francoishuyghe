@@ -1,25 +1,41 @@
-import { useEffect } from "react";
-import { useSettings } from "@/context/context";
+import { useRef, useEffect } from "react"
+import { useSettings } from "@/context/context"
+import cntl from 'cntl';
 import {PortableText} from '@portabletext/react'
 
 export default function About() {
-  const {settings, showAbout, setShowAbout} = useSettings()
+  const {settings, showAbout} = useSettings()
+  const AboutEl = useRef()
 
+  //Make sure the About section is always scrolled up
   useEffect(() => {
-    const handleScroll = () => {
-      setShowAbout(false)
-    }
-
     if(showAbout){
-      window.addEventListener('scroll', handleScroll);
+      // document.body.style.overflow = 'hidden'
+      document.documentElement.style.overflow = 'hidden'
+      AboutEl.current.scrollTo(0,0)
     } else {
-      window.removeEventListener('scroll', handleScroll);
+      document.documentElement.style.overflow = 'overlay'
     }
+  }, [showAbout])
 
-  }, [showAbout]);
+  const aboutCN = cntl`
+  fixed
+  top-[100vh]
+  w-screen
+  h-screen
+  md:h-auto
+  md:top-auto
+  md:bottom-0
+  overflow-auto
+  p-6 
+  z-10
+  bg-black 
+  text-white 
+  ${showAbout && 'sticky-about'}
+  `;
 
   return (
-    <footer id="about" className={`p-6 bg-black text-white fixed ${showAbout && 'sticky-about'}`}>
+    <footer id="about" className={aboutCN} ref={AboutEl}>
       <div className="max-w-4xl">
       <h2 className="text-6xl mb-6">About</h2>
       <p className="mb-6">{settings.about}</p>

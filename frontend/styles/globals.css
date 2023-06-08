@@ -33,6 +33,7 @@ body {
 
 p{
   margin-bottom: 1.5rem;
+  font-weight: 300;
 }
 
 h1{
@@ -85,20 +86,61 @@ h1, h2, h3,
 }
 
 #about{
-  bottom: 0;
-  width: 100%;
   transition: .5s ease;
-  transform: translateY(100%);
-  margin-top: -50rem;
-  z-index: 99;
-  
-  @media( min-width: 480px){
-    margin-top: -20rem;
+  @media (width > 480px){
+    transform: translateY(100%)
   }
 }
 
 #about.sticky-about{
-  transform: translateY(0);
+  top: 0;
+
+  @media (width > 480px){
+    top: auto;
+    transform: translateY(0)
+  }
+}
+
+#background{
+  opacity: 0;
+  visibility: hidden;
+  transition: .5s;
+  /* animation-duration: .5s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  animation-name: fadeOut; */
+}
+
+#background.madeVisible{
+  opacity: .6;
+  visibility: visible;
+  /* animation-name: fadeIn; */
+}
+
+#background.hidden{
+  animation-name: fadeOut;
+}
+
+@keyframes fadeIn {
+  0% { 
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% { 
+    opacity: .8; 
+    visibility: visible;
+  }
+}
+
+@keyframes fadeOut {
+  0% { 
+    opacity: .8; 
+    visibility: visible;
+  }
+  100% { 
+    opacity: 0;
+    visibility: hidden;
+  }
 }
 
 
