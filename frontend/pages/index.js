@@ -1,12 +1,10 @@
-import { useSettings } from "@/context/context";
 import Portfolio from '@/components/Portfolio';
-import { getAllProjects } from '@/lib/database';
+import { getAllProjects, getSettings } from '@/lib/database';
 import { Inter } from 'next/font/google'
 import Head from "next/head";
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home({projects}) {
-  const {settings} = useSettings()
+export default function Home({projects, settings}) {
 
   return (<main className={`${inter.className} min-h-screen p-6 bg-white`}>
       <Head>
@@ -28,10 +26,12 @@ export default function Home({projects}) {
 
 export async function getStaticProps() {
   const projects = await getAllProjects()
+  const settings = await getSettings()
 
   return {
     props: {
-      projects
+      projects,
+      settings
     }
   };
 }
