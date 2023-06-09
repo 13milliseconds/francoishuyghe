@@ -14,6 +14,7 @@ const components = {
 
 export default function ProjectPage({project}){
   const { settings } = useSettings()
+  const {title, year, blurb, website, github_link, technology, featuredImage, content} = project
 
   const onBackToTop = () => {
     window.scrollTo({
@@ -24,29 +25,32 @@ export default function ProjectPage({project}){
     
     return <main className={`${inter.className} min-h-screen p-6  bg-white`}>
       <Head>
-        <title>{`${settings.title} | ${project.title}`}</title>
+        <title>{`${settings.title} | ${title}`}</title>
         <meta
           name="description"
-          content={project.blurb}
+          content={blurb}
         />
       </Head>
       <div className="back mb-6">
       </div>
         <article>
-          <header className="mb-12">
-            { project.technology && 
+          <header className="">
+            { technology && 
             <div className="project-technologies">
-              <PortableText value={project.technology} />
+              <PortableText value={technology} />
             </div>}
             <div className="flex align-items-top">
-              <h1 className="text-5xl mb-2">{project.title}</h1>
-              <div className="project-year">{project.year}</div>
+              <h1 className="text-5xl mb-2">{title}</h1>
+              <div className="project-year">{year}</div>
             </div>
-            { project.featuredImage && <ImageBlock value={project.featuredImage} classes="py-6" />}
-            <p className="text-3xl max-w-2xl ml-auto">{project.blurb}</p>
+            { featuredImage && <ImageBlock value={featuredImage} classes="py-6" />}
+              <ul className="links text-2xl mb-12 md:h-0">
+                {website && <li className="mb-2"><a target="_blank" className="hover:underline" href={website}>Website</a></li>}
+                {github_link && <li><a  target="_blank" href={github_link} className="hover:underline">Github</a></li>}
+                </ul>
           </header>
-          <div className="project-content max-w-xl">
-            <PortableText value={project.content} components={components} />
+          <div className="project-content">
+            <PortableText value={content} components={components} />
           </div>
         </article>
         <div onClick={onBackToTop} className="cursor-pointer hover:underline">^ Back to Top</div>
