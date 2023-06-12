@@ -13,6 +13,11 @@ export default function Home({projects, settings}) {
           name="description"
           content={settings.tagline}
         />
+        <meta property="og:url"                content="https://francoishuyghe.com" />
+        <meta property="og:type"               content="website" />
+        <meta property="og:title"              content={settings.title} />
+        <meta property="og:description"        content={settings.tagline} />
+        <meta property="og:image"              content={settings.social_image} />
       </Head>
 
       <div className="max-w-4xl mb-10">

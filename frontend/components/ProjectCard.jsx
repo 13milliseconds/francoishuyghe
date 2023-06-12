@@ -10,7 +10,7 @@ export default function ProjectCard({project}) {
       <div className="image md:mb-6 mb-2">
       <Link href={`/project/${project.slug.current}`} name={project.title} scroll={false}>
         { project.featuredImage &&
-          <ImageBlock value={project.featuredImage}/>}
+          <ImageBlock value={project.featuredImage} size="(max-width: 767px) 100vw, 70vh"/>}
         </Link>
       </div>
       <motion.div 

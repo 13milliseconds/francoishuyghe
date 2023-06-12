@@ -17,7 +17,7 @@ export default function App({ Component, pageProps }) {
   }
 
   return <SettingsProvider>
-    <Header />
+    <Header/>
     <AnimatePresence 
       mode="wait" 
       initial={false} 

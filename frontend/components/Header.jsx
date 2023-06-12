@@ -11,7 +11,7 @@ export default function Header() {
 
   return (
     <div className='header flex px-6 py-2 justify-between align-center'>
-        <h1 className="m:text-6xl text-5xl font-bold uppercase"><Link href="/">{settings.title}</Link></h1>
+      <h1 className="m:text-6xl pr-24 text-5xl font-bold uppercase"><Link href="/">{settings.title}</Link></h1>
       <div>
         <Avatar showAbout={showAbout} onClick={handleAboutButton} />
       </div>

@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 
 
-export default function ImageBlock({value, classes}) {
+export default function ImageBlock({value, classes, sizes}) {
   const imageProps = useNextSanityImage(client, value)
 
     return <div className={`image-block ${classes}`}>
@@ -13,7 +13,7 @@ export default function ImageBlock({value, classes}) {
         {...imageProps}
         alt=""
         style={{ width: '100%', height: 'auto' }}
-        sizes="(max-width: 1500px) 100vw, 800px"
+        sizes={sizes}
         placeholder="blur"
         blurDataURL={value.asset.metadata.lqip}
       />

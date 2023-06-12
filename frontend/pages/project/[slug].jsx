@@ -30,6 +30,10 @@ export default function ProjectPage({project}){
           name="description"
           content={blurb}
         />
+        <meta property="og:url"                content={`https://francoishuyghe.com`} />
+        <meta property="og:type"               content="article" />
+        <meta property="og:title"              content={title} />
+        <meta property="og:description"        content={blurb} />
       </Head>
       <div className="back mb-6">
       </div>
@@ -44,10 +48,12 @@ export default function ProjectPage({project}){
               <div className="project-year">{year}</div>
             </div>
             { featuredImage && <ImageBlock value={featuredImage} classes="py-6" />}
-              <ul className="links text-2xl mb-12 md:h-0">
+            { (website || github_link) &&
+              <ul className="links text-2xl mb-12 md:mb-0 md:h-0">
                 {website && <li className="mb-2"><a target="_blank" className="hover:underline" href={website}>Website</a></li>}
                 {github_link && <li><a  target="_blank" href={github_link} className="hover:underline">Github</a></li>}
                 </ul>
+            }
           </header>
           <div className="project-content">
             <PortableText value={content} components={components} />
