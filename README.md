@@ -1,2 +1,4 @@
 # francoishuyghe.com
-My portfolio website
+My new portfolio website
+
+![Screenshot](https://i.imgur.com/lQJnXvn.png)
