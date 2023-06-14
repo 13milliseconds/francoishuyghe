@@ -1,7 +1,7 @@
 import { useRef, useEffect } from "react"
 import { useSettings } from "@/context/context"
 import cntl from 'cntl';
-import {PortableText} from '@portabletext/react'
+import Blocks from "./Blocks";
 import ImageBlock from "./ImageBlock";
 
 export default function About() {
@@ -57,12 +57,12 @@ export default function About() {
       {/* COLUMNS */}
         <div className="mb-6">
           <h4 className="border-b pb-2 mb-2 max-w-[10rem]">Technology</h4>
-          <PortableText value={settings.technology}/>
+          <Blocks value={settings.technology}/>
         </div>
 
         <div className="col mb-6">
           <h4 className="border-b pb-2 mb-2 max-w-[10rem]">Clients</h4>
-          <PortableText value={settings.clients}/>
+          <Blocks value={settings.clients}/>
         </div>
 
         <div className="col mb-6">

@@ -2,6 +2,7 @@ import Portfolio from '@/components/Portfolio';
 import { getAllProjects, getSettings } from '@/lib/database';
 import { Inter } from 'next/font/google'
 import Head from "next/head";
+import Blocks from '@/components/Blocks';
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home({projects, settings}) {
@@ -24,6 +25,9 @@ export default function Home({projects, settings}) {
         <p className="text-xl md:text-3xl">{settings.tagline}</p>
       </div>
       <Portfolio projects={projects} />
+      <div id="description" className='mt-12 w-max-sm'>
+        <Blocks value={settings.website_description}/>
+      </div>
     </main>
   )
 }

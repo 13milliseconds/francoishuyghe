@@ -2,15 +2,9 @@ import { getAllProjects, getSingleProject } from "@/lib/database";
 import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 import Head from "next/head";
-import {PortableText} from '@portabletext/react'
+import Blocks from "@/components/Blocks";
 import ImageBlock from "@/components/ImageBlock";
 import { useSettings } from "@/context/context";
-
-const components = {
-  types: {
-    image: ({value}) => <ImageBlock value={value} />
-  }
-}
 
 export default function ProjectPage({project}){
   const { settings } = useSettings()
@@ -41,7 +35,7 @@ export default function ProjectPage({project}){
           <header className="">
             { technology && 
             <div className="project-technologies">
-              <PortableText value={technology} />
+              <Blocks value={technology} />
             </div>}
             <div className="flex align-items-top">
               <h1 className="text-5xl mb-2">{title}</h1>
@@ -56,7 +50,7 @@ export default function ProjectPage({project}){
             }
           </header>
           <div className="project-content">
-            <PortableText value={content} components={components} />
+            <Blocks value={content}/>
           </div>
         </article>
         <div onClick={onBackToTop} className="cursor-pointer hover:underline">^ Back to Top</div>

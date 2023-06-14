@@ -14,8 +14,8 @@ export default function ImageBlock({value, classes, sizes}) {
         alt=""
         style={{ width: '100%', height: 'auto' }}
         sizes={sizes}
-        placeholder="blur"
-        blurDataURL={value.asset.metadata.lqip}
+        placeholder={value.asset.metadata ? 'blur' : ''}
+        blurDataURL={value.asset.metadata ? value.asset.metadata.lqip : null}
       />
       </div>
     </div>
