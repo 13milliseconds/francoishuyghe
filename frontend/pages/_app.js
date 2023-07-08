@@ -8,7 +8,12 @@ import {useRouter} from 'next/router'
 import Copyright from '@/components/Copyright'
 import Background from '@/components/Background'
 
-mixpanel.init('5ef841fbcb5da6cd638311395889856b', { debug: true, track_pageview: true, persistence: 'localStorage' });
+mixpanel.init('5ef841fbcb5da6cd638311395889856b', { 
+  debug: true, 
+  track_pageview: true, 
+  persistence: 'localStorage',
+  ignore_dnt: true
+})
 
 export default function App({ Component, pageProps }) {
   const router = useRouter()
