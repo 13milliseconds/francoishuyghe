@@ -5,10 +5,13 @@ import Head from "next/head";
 import Blocks from "@/components/Blocks";
 import ImageBlock from "@/components/ImageBlock";
 import { useSettings } from "@/context/context";
+import mixpanel from "mixpanel-browser";
 
 export default function ProjectPage({project}){
   const { settings } = useSettings()
   const {title, year, blurb, website, github_link, technology, featuredImage, content} = project
+
+  mixpanel.track_pageview();
 
   const onBackToTop = () => {
     window.scrollTo({

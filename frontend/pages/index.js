@@ -1,3 +1,4 @@
+
 import Portfolio from '@/components/Portfolio';
 import { getAllProjects, getSettings } from '@/lib/database';
 import { Inter } from 'next/font/google'
@@ -6,6 +7,8 @@ import Blocks from '@/components/Blocks';
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home({projects, settings}) {
+
+  mixpanel.track_pageview();
 
   return (<main className={`${inter.className} min-h-screen p-6 bg-white`}>
       <Head>

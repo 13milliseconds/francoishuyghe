@@ -1,4 +1,5 @@
 import '@/styles/globals.css'
+import mixpanel from 'mixpanel-browser'
 import { SettingsProvider } from '@/context/context'
 import Header from '@/components/Header'
 import About from '@/components/About'
@@ -7,6 +8,7 @@ import {useRouter} from 'next/router'
 import Copyright from '@/components/Copyright'
 import Background from '@/components/Background'
 
+mixpanel.init('5ef841fbcb5da6cd638311395889856b', { debug: true, track_pageview: true, persistence: 'localStorage' });
 
 export default function App({ Component, pageProps }) {
   const router = useRouter()
