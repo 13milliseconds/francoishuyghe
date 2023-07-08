@@ -4,6 +4,7 @@ import { getAllProjects, getSettings } from '@/lib/database';
 import { Inter } from 'next/font/google'
 import Head from "next/head";
 import Blocks from '@/components/Blocks';
+import mixpanel from 'mixpanel-browser';
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home({projects, settings}) {
